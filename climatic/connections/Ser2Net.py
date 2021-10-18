@@ -27,7 +27,7 @@ class Ser2Net(Connection):
         @param logger   Optional logger for debug messages
         """
         if logger != None:
-            logger.debug("Connecting to Ser2Net (%s %s).", self.ip, selp.port)
+            logger.debug("Connecting to Ser2Net (%s %s).", self.ip, self.port)
 
         self.terminal = pexpect.spawn(
             'telnet {0} {1}'.format(self.ip, self.port), logfile=logfile, encoding='utf-8')
@@ -39,5 +39,5 @@ class Ser2Net(Connection):
         @param logger   Optional logger for debug messages
         """
         if logger != None:
-            logger.debug("Disconnecting from Ser2Net (%s %s).", self.ip, selp.port)
+            logger.debug("Disconnecting from Ser2Net (%s %s).", self.ip, self.port)
         self.terminal.close()
