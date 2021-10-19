@@ -30,7 +30,8 @@ class Ser2Net(Connection):
             logger.debug("Connecting to Ser2Net (%s %s).", self.ip, self.port)
 
         self.terminal = pexpect.spawn(
-            'telnet {0} {1}'.format(self.ip, self.port), logfile=logfile, encoding='utf-8')
+            'telnet {0} {1}'.format(self.ip, self.port), logfile=logfile, encoding='utf-8', codec_erros='replace')
+
         self.terminal.sendline()
         self.terminal.setwinsize(PTY_WINSIZE_ROWS, PTY_WINSIZE_COLS)
 
